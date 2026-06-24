@@ -1,20 +1,19 @@
 #include <iostream>
 using namespace std;
 
-bool isPalindrome(int n) {
-    int temp = n, rev = 0;
-    while (temp > 0) {
-        rev = rev * 10 + (temp % 10);
-        temp /= 10;
+bool isPerfect(int n) {
+    int sum = 0;
+    for (int i = 1; i <= n / 2; i++) {
+        if (n % i == 0) sum += i;
     }
-    return n == rev;
+    return sum == n;
 }
 
 int main() {
     int num;
     cout << "Enter a number: ";
     cin >> num;
-    if (isPalindrome(num)) cout << "It is a Palindrome." << endl;
-    else cout << "It is not a Palindrome." << endl;
+    if (isPerfect(num)) cout << "It is a Perfect number." << endl;
+    else cout << "It is not a Perfect number." << endl;
     return 0;
 }
